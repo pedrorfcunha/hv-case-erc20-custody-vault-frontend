@@ -39,7 +39,7 @@ const CustodyVaultContainer = () => {
                             <Td isNumeric>Status</Td>
                         </Tr>
                     </Thead>
-                    {getAllDeposits.data.length > 0 ? (
+                    {getAllDeposits.data > 0 ? (
                         <Tbody>
                             {getAllDeposits.data.map((deposit) => (
                                 <Tr key={deposit.depositId}>
