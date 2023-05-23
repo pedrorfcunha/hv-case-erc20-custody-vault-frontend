@@ -1,25 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import CustodyVaultContainer from "./components/custody-vault-container/custody-vault-container.component";
+import SampleTokenContainer from "./components/sample-token-container/sample-token-container.component";
+import TrusteeCommandsContainer from "./components/trustee-commands-container/trustee-commands-container.component";
+import Signature from "./components/signature/signature.component";
+import { ConnectButton } from "@rainbow-me/rainbowkit";
+import { useAccount } from "wagmi";
+import NotConnected from "./components/not-connected/not-connected.component";
+
+import "./App.scss";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const { isConnected } = useAccount();
+
+    return (
+        <div className="App">
+            <ConnectButton />
+            {isConnected ? (
+                <div className="app-main-container">
+                    <SampleTokenContainer />
+                    <CustodyVaultContainer />
+                    <TrusteeCommandsContainer />
+                </div>
+            ) : (
+                <NotConnected />
+            )}
+
+            <Signature />
+        </div>
+    );
 }
 
 export default App;
