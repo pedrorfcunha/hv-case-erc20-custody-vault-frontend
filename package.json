@@ -2,6 +2,11 @@
   "name": "hv-case-er20-custody-vault-frontend",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "yarn": "1.22.19",
+    "node": ">=19.4.0",
+    "npm": "9.2.0"
+  },
   "dependencies": {
     "@chakra-ui/react": "^2.6.1",
     "@emotion/react": "^11.11.0",
